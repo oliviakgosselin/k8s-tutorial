@@ -13,7 +13,7 @@ before_script:
 build:
     stage: build
     script:
-        # Build and tag image for both GCR and Gitlab registries
-        - docker build --cache-from -t gcr.io/k8s-tutorial-294821/k8s-tutorial:latest .
+        # Build and tag image for both GCR registry
+        - docker build -t gcr.io/k8s-tutorial-294821/k8s-tutorial:latest .
         # Push image to GCR
         - docker push gcr.io/k8s-tutorial-294821/k8s-tutorial:latest
