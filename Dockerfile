@@ -9,7 +9,6 @@ RUN npm ci && npm run build
 
 EXPOSE 80
 
-
 #stage 2
 FROM nginx:alpine
 COPY --from=k8s-tutorial-build /app/dist/k8s-tutorial /usr/share/nginx/html
