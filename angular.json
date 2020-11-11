@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "k8s-tutorial"
+    }
+  },
+  "defaultProject": "k8s-tutorial",
+  "cli": {
+    "analytics": "5fe70093-b64c-4a1f-8494-e0bbde22cf7f"
+  }
 }
