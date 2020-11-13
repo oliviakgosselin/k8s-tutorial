@@ -31,4 +31,4 @@ deploy:
         - gcloud config set compute/zone us-central1-c
         - gcloud container clusters get-credentials k8s-tutorial-cluster --zone us-central1-c
         # Perform deployment
-        - kubectl apply -f k8s-tutorial-deployment.yaml
+        - kubectl apply -f ./k8s-tutorial-deployment.yaml
