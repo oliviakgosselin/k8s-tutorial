@@ -26,7 +26,7 @@ deploy:
         # Authenticate with GKE
         - base64 -d $GCP_SA_KEY > key.json
         - gcloud auth activate-service-account --key-file=key.json
-        - gcloud config set project k8s-tutorial-2948
+        - gcloud config set project k8s-tutorial-294821
         - gcloud config set container/cluster k8s-tutorial-cluster
         - gcloud config set compute/zone us-central1-c
         - gcloud container clusters get-credentials k8s-tutorial-cluster --zone us-central1-c
