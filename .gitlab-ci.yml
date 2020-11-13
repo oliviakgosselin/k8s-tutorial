@@ -24,8 +24,7 @@ deploy:
     stage: deploy
     script:
         # Authenticate with GKE
-        - echo $GCP_SA_KEY
-        - echo $GCP_SA_KEY > key.json
+        - base64 -d $GCP_SA_KEY > key.json
         - gcloud auth activate-service-account --key-file=key.json
         - gcloud config set project k8s-tutorial-2948
         - gcloud config set container/cluster k8s-tutorial-cluster
