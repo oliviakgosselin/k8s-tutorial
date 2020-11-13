@@ -18,18 +18,16 @@ build:
         - docker build -t gcr.io/k8s-tutorial-294821/k8s-tutorial:latest .
         # Push image to GCR
         - docker push gcr.io/k8s-tutorial-294821/k8s-tutorial:latest
+
 deploy:
-    image: 'gcloud-with-envsubst:latest'
+    image: google/cloud-sdk:latest
     stage: deploy
-    variables:
-        DOCKER_IMAGE_TAG: 'gcr.io/k8s-tutorial-294821/k8s-tutorial:latest'
     script:
         # Authenticate with GKE
         — echo "$GCP_SA_KEY" > key.json
-        - base64 -d $GCP-SA_KEY | gcloud auth activate-service-account --key-file=key.json
+        - gcloud auth activate-service-account --key-file=key.json
         - gcloud config set project k8s-tutorial-2948
-        - glcoud config set container/cluster k8s-tutorial-cluster
+        - gcloud config set container/cluster k8s-tutorial-cluster
         - gcloud config set compute/zone us-central1-c
         - gcloud container clusters get-credentials k8s-tutorial-cluster --zone us-central1-c
-        # Perform deployment
-        — cat ./k8s-tutorial-deployment.yaml | envsubst | kubectl apply -f -
+        — kubectl apply -f k8s-tutorial-deployment.yaml
