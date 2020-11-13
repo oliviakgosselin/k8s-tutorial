@@ -1,0 +1,20 @@
+    apiVersion: "apps/v1"
+    kind: "Deployment"
+    metadata:
+      name: "nginx-2"
+      namespace: "default"
+      labels:
+        app: "nginx-2"
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: "nginx-2"
+      template:
+        metadata:
+          labels:
+            app: "nginx-2"
+        spec:
+          containers:
+          - name: "k8s-tutorial-1"
+            image: "gcr.io/k8s-tutorial-294821/k8s-tutorial:latest"
