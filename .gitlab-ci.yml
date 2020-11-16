@@ -32,3 +32,5 @@ deploy:
         - gcloud container clusters get-credentials k8s-tutorial-cluster --zone us-central1-c
         # Perform deployment
         - kubectl apply -f ./k8s-tutorial-deployment.yaml
+        # Expose
+        - kubectl expose deployment nginx-2 --name k8s-tutorial-service --type NodePort --port 60000 --target-port 50001
