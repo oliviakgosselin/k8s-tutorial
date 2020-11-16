@@ -18,6 +18,6 @@
           containers:
           - name: "k8s-tutorial-1"
             image: "gcr.io/k8s-tutorial-294821/k8s-tutorial:latest"
-            env:
-              - name: "PORT"
-                value: 50001
+            ports:
+            - containerPort: 50001
+              protocol: TCP
